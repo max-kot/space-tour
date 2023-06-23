@@ -1,0 +1,91 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: calc(var(--index) * 2.62) 0;
+	z-index: 55;
+
+	&__body {
+		display: flex;
+		gap: 15px;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		
+		@media (min-width: 1920px) {
+			gap: calc(var(--index) * 2)
+		}
+	}
+
+	&__menu {
+	}
+
+	&__phone {
+		@include link-reset;
+		color: var(--main-text);
+		font-size: rem(24);
+		position: relative;
+		padding-right: 52px;
+		transition: all 0.5s;
+		@media (min-width: 1920px) {
+			font-size: calc(var(--index) * 1.2);
+			padding-right: calc(var(--index) * 3);
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 30px;
+			height: 30px;
+			background-image: url("../images/icons/phone.png");
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 100%;
+			transition: all 0.5s;
+			@media (min-width: 1920px) {
+				width: calc(var(--index) * 2);
+				height: calc(var(--index) * 2);
+			}
+		}
+
+		&:hover {
+			color: var(--accent-color);
+
+			&::after {
+				transform: translateY(-50%) scale(1.2);
+			}
+		}
+	}
+}
+
+.menu {
+	&__list {
+		@include list-reset;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 15px 30px;
+		@media (min-width: 1920px) {
+			gap: calc(var(--index) * 1) calc(var(--index) * 1.5);
+		}
+	}
+
+	&__item {
+	}
+
+	&__link {
+		@include link-reset;
+		color: var(--text-color);
+		text-transform: uppercase;
+		font-size: rem(18);
+		transition: all 0.5s;
+		@media (min-width: 1920px) {
+			font-size: calc(var(--index) / 1.1);
+		}
+		&:hover {
+			color: var(--accent-color);
+		}
+	}
+}

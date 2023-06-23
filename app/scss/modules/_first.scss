@@ -1,0 +1,123 @@
+.first {
+	--padding-v: calc(var(--header-height) + var(--index));
+	padding: var(--padding-v) 0;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	position: relative;
+
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: calc(var(--index) * 20);
+		background: linear-gradient(180deg, rgba(1, 2, 3, 0) 0%, #010203 100%);
+		z-index: 1;
+	}
+
+	&__body {
+		min-height: calc(100vh - (var(--padding-v) * 2));
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 30px 15px;
+		position: relative;
+		z-index: 2;
+
+		@media (min-width: 1920px) {
+			gap: calc(var(--index) * 1.5) calc(var(--index) * 1);
+		}
+	}
+
+	&__main-info {
+		flex: 0 1 600px;
+
+		@media (min-width: 1920px) {
+			flex: 0 1 calc(var(--index) * 25);
+		}
+		& > * {
+			@include reset;
+		}
+
+		& > *:not(:last-child) {
+			margin-bottom: 15px;
+			@media (min-width: 1920px) {
+				margin-bottom: calc(var(--index) * 1);
+			}
+		}
+	}
+
+	&__title {
+		font-size: rem(60);
+		line-height: 100%;
+		text-transform: uppercase;
+		font-family: var(--title-font);
+		@media (min-width: 1920px) {
+			font-size: calc(var(--index) * 2.8);
+		}
+		span {
+			font-size: rem(110);
+			@media (min-width: 1920px) {
+				font-size: calc(var(--index) * 5);
+			}
+		}
+	}
+
+	&__descr {
+		display: flex;
+		gap: 15px;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		@media (min-width: 1920px) {
+			gap: calc(var(--index) * 1);
+		}
+		& > * {
+			@include reset;
+			font-size: rem(24);
+			@media (min-width: 1920px) {
+				font-size: calc(var(--index) * 1.1);
+			}
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 50px;
+			@media (min-width: 1920px) {
+				margin-bottom: calc(var(--index) * 3);
+			}
+		}
+	}
+
+	&__text {
+	}
+
+	&__link {
+		
+	}
+
+	&__info {
+		--gap-h: 15px;
+		--column: 2;
+		--width: calc(100% / var(--column) - (var(--gap-h) * (var(--column) - 1)));
+
+		align-self: flex-end;
+		justify-content: space-between;
+		flex: 0 1 381px;
+		display: flex;
+		gap: 15px var(--gap-h);
+		flex-wrap: wrap;
+		@media (min-width: 1920px) {
+			--gap: calc(var(--index) * 1);
+			flex: 0 1 calc(var(--index) * 20);
+		}
+		& > * {
+			@include reset;
+			flex: 0 1 var(--width);
+
+			@media (min-width: 1920px) {
+			}
+		}
+	}
+}
