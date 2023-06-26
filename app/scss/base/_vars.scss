@@ -12,7 +12,7 @@
 	--container-width: 1200px;
 	--container-padding: 10px;
 
-	@media (min-width: 1920px) {
+	@media (min-width: 1921px) {
 		--container-width: calc(var(--index) * 200);
 		--container-padding: 7vw;
 	}
@@ -25,6 +25,10 @@
 	// Fonts
 	--main-font: "SFProDisplay", sans-serif;
 	--title-font: "SpaceAgeCyrillic", sans-serif;
+
+	// index for px
+	--100px: calc(var(--index) * 5);
+	--30px: calc(var(--index) * 1.3);
 }
 
 // PERCENTAGE LINE-HEIGHT
@@ -65,4 +69,9 @@
 }
 @mixin link-reset {
 	text-decoration: none;
+}
+@mixin btn-reset {
+	cursor: pointer;
+	border: none;
+	background: transparent;
 }

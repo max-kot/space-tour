@@ -1,6 +1,8 @@
 .first {
 	--padding-v: calc(var(--header-height) + var(--index));
 	padding: var(--padding-v) 0;
+	background: rgba(#010203, 0.4);
+	background-blend-mode: multiply;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -27,25 +29,35 @@
 		position: relative;
 		z-index: 2;
 
-		@media (min-width: 1920px) {
+		@media (min-width: 1921px) {
 			gap: calc(var(--index) * 1.5) calc(var(--index) * 1);
+		}
+
+		@media (max-width: 1024px) {
+			justify-content: center;
 		}
 	}
 
 	&__main-info {
 		flex: 0 1 600px;
 
-		@media (min-width: 1920px) {
+		@media (min-width: 1921px) {
 			flex: 0 1 calc(var(--index) * 25);
+		}
+
+		@media (max-width: 1024px) {
+			flex: 1 1 100%;
+			justify-content: center;
+			text-align: center;
 		}
 		& > * {
 			@include reset;
 		}
 
 		& > *:not(:last-child) {
-			margin-bottom: 15px;
-			@media (min-width: 1920px) {
-				margin-bottom: calc(var(--index) * 1);
+			margin-bottom: 30px;
+			@media (min-width: 1921px) {
+				margin-bottom: calc(var(--index) * 1.5);
 			}
 		}
 	}
@@ -55,13 +67,21 @@
 		line-height: 100%;
 		text-transform: uppercase;
 		font-family: var(--title-font);
-		@media (min-width: 1920px) {
+		@media (min-width: 1921px) {
 			font-size: calc(var(--index) * 2.8);
+		}
+
+		@media (max-width: 768px) {
+			font-size: calc(var(--index) * 3);
 		}
 		span {
 			font-size: rem(110);
-			@media (min-width: 1920px) {
+			@media (min-width: 1921px) {
 				font-size: calc(var(--index) * 5);
+			}
+
+			@media (max-width: 768px) {
+				font-size: calc(var(--index) * 6);
 			}
 		}
 	}
@@ -71,20 +91,29 @@
 		gap: 15px;
 		justify-content: space-between;
 		flex-wrap: wrap;
-		@media (min-width: 1920px) {
+		@media (min-width: 1921px) {
 			gap: calc(var(--index) * 1);
 		}
+
+		@media (max-width: 1024px) {
+			flex: 1 1 100%;
+			justify-content: center;
+		}
+
 		& > * {
 			@include reset;
 			font-size: rem(24);
-			@media (min-width: 1920px) {
+			@media (min-width: 1921px) {
 				font-size: calc(var(--index) * 1.1);
+			}
+			@media (max-width: 768px) {
+				font-size: rem(20);
 			}
 		}
 
 		&:not(:last-child) {
 			margin-bottom: 50px;
-			@media (min-width: 1920px) {
+			@media (min-width: 1921px) {
 				margin-bottom: calc(var(--index) * 3);
 			}
 		}
@@ -108,15 +137,27 @@
 		display: flex;
 		gap: 15px var(--gap-h);
 		flex-wrap: wrap;
-		@media (min-width: 1920px) {
+
+		@media (min-width: 1921px) {
 			--gap: calc(var(--index) * 1);
 			flex: 0 1 calc(var(--index) * 20);
 		}
+
+		@media (max-width: 1024px) {
+			flex: 1 1 100%;
+			justify-content: center;
+		}
+
+		@media (max-width: 768px) {
+			--column: 1;
+		}
+
 		& > * {
 			@include reset;
 			flex: 0 1 var(--width);
-
-			@media (min-width: 1920px) {
+			font-size: rem(14);
+			@media (min-width: 1921px) {
+				font-size: calc(var(--index) / 1.3);
 			}
 		}
 	}
