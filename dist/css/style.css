@@ -930,6 +930,7 @@ body {
   -webkit-box-flex: 0;
   -ms-flex: 0 1 600px;
   flex: 0 1 600px;
+  overflow-x: auto;
 }
 
 .about-company__content > * {
@@ -981,6 +982,10 @@ body {
   -webkit-box-flex: 1;
   -ms-flex: 1 1 27.4%;
   flex: 1 1 27.4%;
+}
+
+.about-company__table-wrapper {
+  overflow-x: auto;
 }
 
 .about-company__table {
@@ -1101,7 +1106,7 @@ body {
   flex-direction: column;
   width: 555px;
   height: 545px;
-  margin-left: 177px;
+  margin-left: calc(var(--index) * 10);
 }
 
 .how-to__map svg circle {
@@ -1118,6 +1123,7 @@ body {
   padding: 0;
   margin: 0;
   list-style-type: none;
+  counter-reset: myCounter;
 }
 
 .how-to__item {
@@ -1296,6 +1302,10 @@ body {
   .header {
     padding: calc(var(--index) * 1.5) 0;
   }
+
+  .how-to__map {
+    margin-left: calc(var(--index) * 5);
+  }
 }
 
 @media (max-width: 1024px) {
@@ -1400,11 +1410,93 @@ body {
     -ms-flex-pack: center;
     justify-content: center;
   }
+
+  .about {
+    padding: 60px 0;
+  }
+
+  .about__item:not(:last-child) {
+    margin-bottom: 100px;
+  }
+
+  .about-company {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  .about-company__image {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 100%;
+    flex: 0 1 100%;
+    min-height: 500px;
+  }
+
+  .about-company__content {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%;
+  }
+
+  .about-company__descr > * {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 50%;
+    flex: 1 1 50%;
+  }
+
+  .how-to__map {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    gap: 0 30px;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    margin-left: unset;
+  }
+
+  .how-to__map svg {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 359px;
+    flex: 1 1 359px;
+  }
+
+  .how-to__list {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 40%;
+    flex: 1 1 40%;
+  }
+
+  .how-to__item::before {
+    counter-increment: myCounter;
+    content: counter(myCounter) ".";
+  }
+
+  .how-to__item.active {
+    -webkit-transform: unset;
+    -ms-transform: unset;
+    transform: unset;
+  }
+
+  .how-to__item:nth-child(6).active {
+    -webkit-transform: unset;
+    -ms-transform: unset;
+    transform: unset;
+  }
+
+  .how-to__item:not(:last-child) {
+    margin-bottom: 25px;
+  }
 }
 
 @media (max-width: 768px) {
   .btn {
     font-size: 1.125rem;
+  }
+
+  .section-title:not(:last-child) {
+    margin-bottom: 50px;
   }
 
   .first__title {
@@ -1421,5 +1513,25 @@ body {
 
   .first__info {
     --column: 1;
+  }
+
+  .about__item:not(:last-child) {
+    margin-bottom: 50px;
+  }
+
+  .about-company__table td,
+  .about-company__table th {
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 500px) {
+  .section-title:not(:last-child) {
+    margin-bottom: 30px;
+    font-size: 1.875rem;
+  }
+
+  .about-company__image {
+    min-height: 300px;
   }
 }

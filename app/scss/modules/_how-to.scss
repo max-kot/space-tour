@@ -46,10 +46,27 @@
 		flex-direction: column;
 		width: 555px;
 		height: 545px;
-		margin-left: 177px;
+		margin-left: calc(var(--index) * 10);
 
 		@media (min-width: 1921px) {
 			margin-left: calc(var(--index) * 15);
+		}
+
+		@media (max-width: 1440px) {
+			margin-left: calc(var(--index) * 5);
+		}
+
+		@media (max-width: 1024px) {
+			flex-direction: row-reverse;
+			gap: 0 30px;
+			flex-wrap: wrap;
+			width: 100%;
+			height: 100%;
+			margin-left: unset;
+
+			svg {
+				flex: 1 1 359px;
+			}
 		}
 
 		@media (min-width: 1921px) {
@@ -70,6 +87,10 @@
 
 	&__list {
 		@include list-reset;
+		counter-reset: myCounter;
+		@media (max-width: 1024px) {
+			flex: 1 1 40%;
+		}
 	}
 
 	&__item {
@@ -89,6 +110,7 @@
 			transform: scale(1.3) translateX(10%);
 			color: var(--blue-color);
 		}
+
 		&:nth-child(6) {
 			@media (min-width: 1921px) {
 				width: calc(var(--index) * 10);
@@ -96,6 +118,28 @@
 			&.active {
 				transform: scale(1.3);
 				//color: var(--blue-color);
+			}
+		}
+
+		@media (max-width: 1024px) {
+
+			&::before {
+				counter-increment: myCounter;
+				content: counter(myCounter) ".";
+			}
+
+			&.active {
+				transform: unset;
+			}
+
+			&:nth-child(6) {
+				&.active {
+					transform: unset;
+				}
+			}
+
+			&:not(:last-child) {
+				margin-bottom: 25px;
 			}
 		}
 	}
