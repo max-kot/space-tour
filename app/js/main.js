@@ -2,3 +2,4 @@
 import "./modules/header.js";
 import "./modules/mover.js";
 import "./modules/menu.js";
+import "./modules/swiper.js";

@@ -1,0 +1,54 @@
+.to-book {
+	min-height: 914px;
+
+	@media (min-width: 1921px) {
+		min-height: 100vh;
+	}
+
+	@media (max-width: 1024px) {
+		min-height: 100%;
+	}
+
+	&__body {
+		display: flex;
+		justify-content: space-between;
+		gap: 30px;
+
+		@media (min-width: 1921px) {
+			gap: calc(var(--index) * 1.1);
+		}
+
+		@media (max-width: 1024px) {
+			flex-direction: column;
+			gap: unset;
+		}
+	}
+
+	&__title {
+	}
+
+	&__descr {
+		display: flex;
+		justify-content: flex-end;
+		flex-wrap: wrap;
+		gap: 30px 50px;
+		@media (min-width: 1921px) {
+			gap: calc(var(--index) * 1.1) calc(var(--index) * 1.2);
+		}
+
+		@media (max-width: 1024px) {
+			justify-content: flex-start;
+		}
+		
+		& > * {
+			@include reset;
+			flex: 0 1 165px;
+			@media (min-width: 1921px) {
+				flex: 0 1 calc(var(--index) * 8);
+			}
+			@media (max-width: 1024px)  {
+				flex: 1 1 45%;
+			}
+		}
+	}
+}
