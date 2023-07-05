@@ -78,6 +78,7 @@ body {
 /*--- Blocks ---*/
 .btn {
 	@include link-reset;
+	@include btn-reset;
 
 	text-transform: uppercase;
 	color: var(--main-text);
@@ -145,8 +146,13 @@ body {
 
 	padding: 100px 0;
 	position: relative;
+	
 	@media (min-width: 1921px) {
 		padding: var(--100px) 0;
+	}
+
+	@media (max-width: 768px) {
+		padding: 50px 0;
 	}
 	&::before {
 		content: "";
