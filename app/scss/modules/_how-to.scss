@@ -1,35 +1,4 @@
 .how-to {
-	background-repeat: no-repeat;
-	background-position: bottom;
-	background-size: cover;
-
-	padding: 100px 0;
-	position: relative;
-
-	@media (min-width: 1921px) {
-		padding: var(--100px) 0;
-	}
-	&::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: calc(var(--index) * 20);
-		background: linear-gradient(180deg, #010203 0%, rgba(1, 2, 3, 0) 100%);
-		z-index: 1;
-	}
-
-	&::after {
-		content: "";
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: calc(var(--index) * 20);
-		background: linear-gradient(180deg, rgba(1, 2, 3, 0) 0%, #010203 100%);
-		z-index: 1;
-	}
 
 	&__body {
 		position: relative;

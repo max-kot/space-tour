@@ -398,9 +398,14 @@
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-
+		&:hover {
+			svg {
+				fill: var(--accent-color);
+			}
+		}
 		svg {
 			fill: #fff;
+			transition: all 0.5s;
 		}
 		@media (max-width: 1024px) {
 			background: #000;
@@ -417,10 +422,10 @@
 		@media (min-width: 1921px) {
 			left: calc(var(--index) * 2);
 		}
-		@media (max-width: 1200px)  {
+		@media (max-width: 1200px) {
 			left: 15px;
 		}
-		@media (max-width: 1024px)  {
+		@media (max-width: 1024px) {
 			left: 0px;
 			border-left: none;
 		}
@@ -431,10 +436,10 @@
 		@media (min-width: 1921px) {
 			right: calc(var(--index) * 2);
 		}
-		@media (max-width: 1200px)  {
+		@media (max-width: 1200px) {
 			right: 15px;
 		}
-		@media (max-width: 1024px)  {
+		@media (max-width: 1024px) {
 			right: 0px;
 			border-right: none;
 		}
